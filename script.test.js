@@ -14,4 +14,10 @@ describe("StringCalculator", () => {
   test("should return the sum of two/multiple numbers separated by a comma", () => {
     expect(calc.add("1,2")).toBe(3);
   });
+
+  test("should throw an error for negative numbers", () => {
+    expect(() => calc.add("1,-2,3")).toThrow(
+      "Negative numbers not allowed: -2"
+    );
+  });
 });
