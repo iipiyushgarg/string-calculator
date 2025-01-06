@@ -20,4 +20,12 @@ describe("StringCalculator", () => {
       "Negative numbers not allowed: -2"
     );
   });
+
+  test("should return the sum of multiple numbers separated by commas/newlines", () => {
+    expect(calc.add("1\n2,3")).toBe(6);
+  });
+
+  test("should handle custom delimiters", () => {
+    expect(calc.add("//;\n1;2;3;4")).toBe(10);
+  });
 });

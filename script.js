@@ -4,7 +4,11 @@ class StringCalculator {
 
     // Check if there's a custom delimiter
     let delimiter = ",";
-    const numArray = numbers.split(new RegExp(`[${delimiter}]`));
+    if (numbers.startsWith("//")) {
+      [delimiter, numbers] = numbers.slice(2).split("\n", 2);
+    }
+
+    const numArray = numbers.split(new RegExp(`[${delimiter}\n]`));
 
     // Check for negative numbers
     const negativeNumbers = numArray?.filter((num) => +num < 0);
